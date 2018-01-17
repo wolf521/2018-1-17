@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd" 
-        default-autowire="constructor">
-        
-        <bean id="autoWiringService" class="com.imooc.autowiring.AutoWiringService" ></bean>
-        
-        <bean class="com.imooc.autowiring.AutoWiringDAO" ></bean>
-	
- </beans>
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="constructor">
+    <!--
++        Bean的自动装配(AutoWiring)
++        　No:不做任何操作
++        　byname: 根据bean的id名调用set方法自动装配，IOC里id是唯一的
++          byType: 根据class类型调用set方法自动装配，IOC会去找与指定属性类型相同的bean，若IOC里有多个该类型的bean，则会抛出异常。若没找到，也会报错。
++          constructor: 与byType不同的是，构造器参数，不用写set方法，剩下的与byType相同
++          如果写了构造方法，而没有使用constructor配置的话，则会报错
++        -->
+    <bean id="autoWiringService" class="com.imooc.autowiring.AutoWiringService" ></bean>
+
+    <bean class="com.imooc.autowiring.AutoWiringDAO" ></bean>
+
+</beans>
