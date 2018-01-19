@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
 @Component
 public class BeanInvoker {
 	
@@ -19,6 +21,9 @@ public class BeanInvoker {
 	@Autowired
 	@Qualifier("beanImplTwo")
 	private BeanInterface beanInterface;
+
+	@Resource(name="beanImplTwo")
+	private BeanInterface beanInterface1;
 	
 	public void say() {
 		if (null != list && 0 != list.size()) {
@@ -44,6 +49,13 @@ public class BeanInvoker {
 		System.out.println();
 		if (null != beanInterface) {
 			System.out.println(beanInterface.getClass().getName());
+		} else {
+			System.out.println("beanInterface is null...");
+		}
+
+		System.out.println();
+		if (null != beanInterface1) {
+			System.out.println(beanInterface1.getClass().getName());
 		} else {
 			System.out.println("beanInterface is null...");
 		}

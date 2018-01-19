@@ -12,19 +12,19 @@ import org.springframework.context.annotation.ScopedProxyMode;
 @ImportResource("classpath:config.xml")
 public class StoreConfig {
 	
-//	@Value("${url}")
-//	private String url;
-//	
-//	@Value("${jdbc.username}")
-//	private String username;
-//	
-//	@Value("${password}")
-//	private String password;
-//	
-//	@Bean
-//	public MyDriverManager myDriverManager() {
-//		return new MyDriverManager(url, username, password);
-//	}
+	@Value("${url}")
+	private String url;
+
+	@Value("${jdbc.username}")
+	private String username;
+
+	@Value("${password}")
+	private String password;
+
+	@Bean
+	public MyDriverManager myDriverManager() {
+		return new MyDriverManager(url, username, password);
+	}
 	
 	
 //	@Bean(name = "stringStore", initMethod="init", destroyMethod="destroy")
@@ -54,13 +54,18 @@ public class StoreConfig {
 	public IntegerStore integerStore() {
 		return new IntegerStore();
 	}
-	
-//	@Bean(name = "stringStoreTest")
-//	public Store stringStoreTest() {
-//		System.out.println("s1 : " + s1.getClass().getName());
-//		System.out.println("s2 : " + s2.getClass().getName());
-//		return new StringStore();
-//	}
+
+	/**
+	 * 基于泛型的自动装配
+	 *
+	 * @return
+	 */
+	@Bean(name = "stringStoreTest")
+	public Store stringStoreTest() {
+		System.out.println("s1 : " + s1.getClass().getName());
+		System.out.println("s2 : " + s2.getClass().getName());
+		return new StringStore();
+	}
 	
 
 }
