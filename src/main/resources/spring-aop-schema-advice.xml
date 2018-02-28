@@ -10,11 +10,14 @@
 	<bean id="moocAspect" class="com.imooc.aop.schema.advice.MoocAspect"></bean>
 	
 	<bean id="aspectBiz" class="com.imooc.aop.schema.advice.biz.AspectBiz"></bean>
-	
+	<!--
+
+	-->
 	<aop:config>
+		<!--切面，ref：切面类，-->
 		<aop:aspect id="moocAspectAOP" ref="moocAspect">
 <!-- 			<aop:pointcut expression="execution(* com.imooc.aop.schema.advice.biz.*Biz.*(..))" id="moocPiontcut"/> -->
-<!-- 			<aop:before method="before" pointcut-ref="moocPiontcut"/> -->
+<!-- 			<aop:before method="before" pointcut-ref="moocPiontcut"/> 前置通知：method:前置通知会调用切面（moocAspect）中的某个方法，例如：before，pointcut-ref：前置通知针对的通知点 -->
 <!-- 			<aop:after-returning method="afterReturning" pointcut-ref="moocPiontcut"/> -->
 <!-- 			<aop:after-throwing method="afterThrowing" pointcut-ref="moocPiontcut"/> -->
 <!-- 			<aop:after method="after" pointcut-ref="moocPiontcut"/> -->
@@ -23,7 +26,7 @@
 <!-- 			<aop:around method="aroundInit" pointcut="execution(* com.imooc.aop.schema.advice.biz.AspectBiz.init(String, int))  -->
 <!-- 							and args(bizName, times)"/> -->
 
-				<aop:declare-parents types-matching="com.imooc.aop.schema.advice.biz.*(+)" 
+				<aop:declare-parents types-matching="com.imooc.aop.schema.advice.biz.*"
 							implement-interface="com.imooc.aop.schema.advice.Fit"
 							default-impl="com.imooc.aop.schema.advice.FitImpl"/>
 		</aop:aspect>

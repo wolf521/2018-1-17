@@ -5,7 +5,7 @@ package com.imooc.beanannotation;
  * Created by Administrator on 2018/1/18.
  */
 
-public class SpringAnnotation {
+public class SpringAnnotationDescription {
     /**
      * @Component:是一个通用注解，可用于任何bean，此注解及其子注解可被spring自动检测类并将bean注册到ApplicationContext中
      * @Repository:通常用于注解DAO类，即持久层，继承@Component
